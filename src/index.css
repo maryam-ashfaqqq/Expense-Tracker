@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-midnight: #1f302a;
+  --color-sidebar: #103f35;
+  --color-primary: #145c46;
+  --color-secondary: #287a5b;
+  --color-charcoal: #14342c;
+  --color-ink: #0c221c;
+  --color-ivory: #f7f7f2;
+  --color-gold: #c6a15b;
+  --color-gold-deep: #8a6a2e;
+  --color-income: #26966d;
+  --color-income-bright: #7dcfab;
+  --color-expense: #d85c5c;
+  --color-expense-bright: #f0a8a8;
+  --color-warn: #e5a83b;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f7f7f2;
+  color: #1f302a;
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  text-rendering: optimizeLegibility;
+}
+
+html.dark body {
+  background: #0c221c;
+  color: #f7f7f2;
+}
+
+::selection {
+  background: #c6a15b;
+  color: #1f302a;
+}
+
+:focus-visible {
+  outline: 2px solid #c6a15b;
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d5ddd4;
+  border-radius: 99px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #245246;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+@keyframes aurum-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(216, 92, 92, 0.38);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(216, 92, 92, 0);
+  }
+}
+
+.budget-alert {
+  animation: aurum-pulse 1.8s ease-out infinite;
+}
+
+@keyframes aurum-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: aurum-rise 0.45s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .budget-alert,
+  .rise {
+    animation: none;
+  }
+}
