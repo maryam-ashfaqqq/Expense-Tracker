@@ -75,5 +75,5 @@ Recurring.hasMany(Transaction, { foreignKey: 'recurringId', onDelete: 'SET NULL'
 Transaction.belongsTo(Recurring, { foreignKey: 'recurringId' })
 
 export async function syncModels() {
-  await sequelize.sync({ alter: true })
+  await sequelize.sync()
 }
